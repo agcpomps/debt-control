@@ -1,0 +1,83 @@
+# =========================
+# GO
+# =========================
+bin/
+dist/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+coverage.out
+
+# Go workspace
+go.work
+go.work.sum
+
+# Vendor (ignore se não usar)
+vendor/
+
+# =========================
+# ENV FILES
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# LOGS
+# =========================
+*.log
+
+# =========================
+# DATABASE
+# =========================
+*.db
+*.sqlite
+*.sqlite3
+
+# =========================
+# DOCKER
+# =========================
+docker-data/
+pgdata/
+*.tar
+
+# =========================
+# SQLC
+# =========================
+internal/db/*.sql.go
+
+# (opcional — se quiser versionar código gerado, remova linha acima)
+
+# =========================
+# NODE / SVELTE
+# =========================
+web/node_modules/
+web/.svelte-kit/
+web/build/
+web/dist/
+web/.vite/
+web/.env
+web/.env.*
+
+# =========================
+# OS FILES
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# IDE
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# TEST / TEMP
+# =========================
+tmp/
