@@ -1,0 +1,25 @@
+
+services:
+  db:
+    image: postgres:16
+    container_name: debt_db
+    restart: always
+    environment:
+      POSTGRES_USER: debt
+      POSTGRES_PASSWORD: debt
+      POSTGRES_DB: debt_control
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  api:
+    build: .
+    container_name: debt_api
+    depends_on:
+      - db
+    ports:
+      - "8082:8080"
+    environment:
+      DB_URL: postgres://debt:debt@db:5432/debt_control?sslmode=disable
+
+volumes:
+  pgdata:
