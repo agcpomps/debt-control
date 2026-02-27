@@ -5,30 +5,33 @@
 package db
 
 import (
-	"github.com/jackc/pgx/v5/pgtype"
+	"database/sql"
+	"time"
+
+	"github.com/google/uuid"
 )
 
 type Client struct {
-	ID        pgtype.UUID
+	ID        uuid.UUID
 	Name      string
-	Phone     pgtype.Text
-	CreatedAt pgtype.Timestamp
+	Phone     sql.NullString
+	CreatedAt time.Time
 }
 
 type Loan struct {
-	ID                  pgtype.UUID
-	ClientID            pgtype.UUID
-	Principal           pgtype.Numeric
-	MonthlyInterestRate pgtype.Numeric
+	ID                  uuid.UUID
+	ClientID            uuid.UUID
+	Principal           string
+	MonthlyInterestRate string
 	Months              int32
-	TotalAmount         pgtype.Numeric
-	DisbursedAt         pgtype.Timestamp
-	CreatedAt           pgtype.Timestamp
+	TotalAmount         string
+	DisbursedAt         time.Time
+	CreatedAt           time.Time
 }
 
 type Payment struct {
-	ID     pgtype.UUID
-	LoanID pgtype.UUID
-	Amount pgtype.Numeric
-	PaidAt pgtype.Timestamp
+	ID     uuid.UUID
+	LoanID uuid.UUID
+	Amount string
+	PaidAt time.Time
 }
